@@ -172,6 +172,11 @@ export interface ChannelWatermark {
 
 // --- Pipeline ---
 
+export interface GraphThread {
+  root: GraphChatMessage;
+  replies: GraphChatMessage[];
+}
+
 export interface PipelineMessage {
   message: GraphChatMessage;
   ctx: ClassificationContext;
