@@ -1,0 +1,20 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "FUNCTIONS_WORKER_RUNTIME": "node",
+
+    "GRAPH_TENANT_ID": "",
+    "GRAPH_CLIENT_ID": "",
+    "GRAPH_CLIENT_SECRET": "",
+    "GRAPH_REFRESH_TOKEN": "",
+
+    "AI_PROVIDER": "none",
+    "AI_ENDPOINT": "",
+    "AI_MODEL": "",
+    "AI_API_KEY": "",
+
+    "DIGEST_WEBHOOK_URL": "",
+    "DIGEST_TIMEZONE": "Europe/London"
+  }
+}

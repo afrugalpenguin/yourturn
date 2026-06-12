@@ -1,0 +1,46 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+*.tsbuildinfo
+
+# Test coverage
+coverage/
+
+# Azure Functions runtime / deploy artifacts
+local.settings.json
+.azure/
+bin/
+obj/
+
+# Azurite local storage emulator
+__azurite_db*.json
+__blobstorage__/
+__queuestorage__/
+
+# Environment / secrets
+.env
+.env.*
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+
+# Claude Code (local tooling artifacts and project instructions)
+.claude/
+.claude.json
+.claude.local.json
+CLAUDE.md
+CLAUDE.local.md
+
+# Editors
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+Desktop.ini
