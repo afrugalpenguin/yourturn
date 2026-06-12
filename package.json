@@ -15,6 +15,7 @@
     "lint": "eslint . && prettier --check .",
     "format": "prettier --write .",
     "preview": "tsx scripts/preview.ts",
+    "demo": "tsx scripts/demo.ts",
     "dry-run": "tsx scripts/dryRun.ts"
   },
   "devDependencies": {
