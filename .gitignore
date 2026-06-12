@@ -25,6 +25,7 @@ __queuestorage__/
 # Environment / secrets
 .env
 .env.*
+.tokencache.json
 
 # Logs
 *.log
