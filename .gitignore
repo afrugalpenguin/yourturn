@@ -8,6 +8,9 @@ dist/
 # Test coverage
 coverage/
 
+# Generated card preview output (regenerate with: npm run preview)
+preview/
+
 # Azure Functions runtime / deploy artifacts
 local.settings.json
 .azure/
