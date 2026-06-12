@@ -1,0 +1,15 @@
+{
+  "id": "1700000000009",
+  "messageType": "message",
+  "createdDateTime": "2026-06-11T10:15:00Z",
+  "webUrl": "https://teams.microsoft.com/l/message/19%3Ageneral000%40thread.tacv2/1700000000009",
+  "replyToId": null,
+  "from": {
+    "user": { "id": "jd000000-0000-0000-0000-000000000003", "displayName": "Jack Dalton" }
+  },
+  "body": {
+    "contentType": "html",
+    "content": "<p>We really need the vendor sign-off before Friday.</p>"
+  },
+  "mentions": []
+}

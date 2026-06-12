@@ -1,0 +1,15 @@
+{
+  "id": "1700000000006",
+  "messageType": "message",
+  "createdDateTime": "2026-06-11T09:30:00Z",
+  "webUrl": "https://teams.microsoft.com/l/message/19%3Ageneral000%40thread.tacv2/1700000000006",
+  "replyToId": null,
+  "from": {
+    "user": { "id": "jd000000-0000-0000-0000-000000000003", "displayName": "Jack Dalton" }
+  },
+  "body": {
+    "contentType": "html",
+    "content": "<p>The phoenix-foundation deploy finished overnight without errors.</p>"
+  },
+  "mentions": []
+}
