@@ -13,12 +13,14 @@
     "test:watch": "vitest",
     "dev": "func start",
     "lint": "eslint . && prettier --check .",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "preview": "tsx scripts/preview.ts"
   },
   "devDependencies": {
     "@types/node": "^20.14.0",
     "eslint": "^9.9.0",
     "prettier": "^3.3.0",
+    "tsx": "^4.22.4",
     "typescript": "^5.5.0",
     "typescript-eslint": "^8.0.0",
     "vitest": "^2.0.0"
