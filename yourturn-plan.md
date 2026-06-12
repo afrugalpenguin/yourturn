@@ -21,10 +21,10 @@ State: Azure Table Storage (last-run watermark per channel, seen-message ids)
 Secrets: Function App settings (local.settings.json locally, Key Vault later)
 ```
 
-## Repo layout (GitHub, new repo `teams-digest`)
+## Repo layout (GitHub, new repo `yourturn`)
 
 ```
-teams-digest/
+yourturn/
 ├── CLAUDE.md                  # project conventions for Claude Code
 ├── README.md
 ├── package.json

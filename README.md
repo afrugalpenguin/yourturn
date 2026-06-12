@@ -1,10 +1,10 @@
-# teams-digest
+# yourturn
 
 A single-user Teams assistant. It scans the channels you are a member of, extracts
 the messages that actually need your action, and posts a digest as an Adaptive Card
 twice a day. Filtering is rules-first; the AI stage only sees the ambiguous middle.
 
-See `teams-digest-plan.md` for the full architecture and build order, and `CLAUDE.md`
+See `yourturn-plan.md` for the full architecture and build order, and `CLAUDE.md`
 for the conventions this repo is built under.
 
 ## Status

@@ -1,5 +1,5 @@
 {
-  "name": "teams-digest",
+  "name": "yourturn",
   "version": "0.1.0",
   "description": "Teams digest assistant - scans channels for items needing the user's action and posts an Adaptive Card digest.",
   "private": true,
