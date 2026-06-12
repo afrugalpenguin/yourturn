@@ -1,0 +1,114 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`buildDigestCard > matches the snapshot for a representative digest 1`] = `
+{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "body": [
+    {
+      "size": "ExtraLarge",
+      "text": "Your turn - daily digest",
+      "type": "TextBlock",
+      "weight": "Bolder",
+    },
+    {
+      "isSubtle": true,
+      "spacing": "None",
+      "text": "2026-06-11 17:00 UTC",
+      "type": "TextBlock",
+    },
+    {
+      "separator": true,
+      "size": "Large",
+      "spacing": "Medium",
+      "text": "Urgent",
+      "type": "TextBlock",
+      "weight": "Bolder",
+    },
+    {
+      "text": "Review the incident notes",
+      "type": "TextBlock",
+      "weight": "Bolder",
+      "wrap": true,
+    },
+    {
+      "isSubtle": true,
+      "spacing": "None",
+      "text": "from Pete Thornton in Project Phoenix - 2026-06-11 09:00 UTC",
+      "type": "TextBlock",
+      "wrap": true,
+    },
+    {
+      "actions": [
+        {
+          "title": "Open message",
+          "type": "Action.OpenUrl",
+          "url": "https://teams.microsoft.com/l/message/19%3Aabc/1",
+        },
+      ],
+      "type": "ActionSet",
+    },
+    {
+      "separator": true,
+      "size": "Large",
+      "spacing": "Medium",
+      "text": "This week",
+      "type": "TextBlock",
+      "weight": "Bolder",
+    },
+    {
+      "text": "Confirm the rollout plan",
+      "type": "TextBlock",
+      "weight": "Bolder",
+      "wrap": true,
+    },
+    {
+      "isSubtle": true,
+      "spacing": "None",
+      "text": "from Pete Thornton in Project Phoenix - 2026-06-11 09:00 UTC",
+      "type": "TextBlock",
+      "wrap": true,
+    },
+    {
+      "actions": [
+        {
+          "title": "Open message",
+          "type": "Action.OpenUrl",
+          "url": "https://teams.microsoft.com/l/message/19%3Aabc/1",
+        },
+      ],
+      "type": "ActionSet",
+    },
+    {
+      "separator": true,
+      "size": "Large",
+      "spacing": "Medium",
+      "text": "FYI",
+      "type": "TextBlock",
+      "weight": "Bolder",
+    },
+    {
+      "text": "swiss-army migration tonight",
+      "type": "TextBlock",
+      "weight": "Bolder",
+      "wrap": true,
+    },
+    {
+      "isSubtle": true,
+      "spacing": "None",
+      "text": "from Pete Thornton in Project Phoenix - 2026-06-11 09:00 UTC - needs review",
+      "type": "TextBlock",
+      "wrap": true,
+    },
+    {
+      "isSubtle": true,
+      "separator": true,
+      "spacing": "Medium",
+      "text": "Showing the most recent items; 3 older message(s) were not analysed.",
+      "type": "TextBlock",
+      "wrap": true,
+    },
+  ],
+  "type": "AdaptiveCard",
+  "version": "1.5",
+}
+`;
