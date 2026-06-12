@@ -74,3 +74,85 @@ export type Classification =
   | { tier: "HIGH"; reason: HighReason }
   | { tier: "MAYBE"; reason: MaybeReason }
   | { tier: "NO"; reason: NoReason };
+
+// --- AI extraction stage ---
+
+export interface ExtractionInput {
+  id: string;
+  channelName: string;
+  from: string;
+  text: string;
+}
+
+export interface ExtractionResult {
+  id: string;
+  isActionForUser: boolean;
+  summary: string;
+  urgency: Urgency;
+  reasoning: string;
+}
+
+export interface ExtractionProvider {
+  readonly name: string;
+  extract(inputs: ExtractionInput[]): Promise<ExtractionResult[]>;
+}
+
+export interface AiConfig {
+  provider: "anthropic" | "openai-compatible" | "none";
+  endpoint?: string;
+  model?: string;
+  apiKey?: string;
+}
+
+export interface FetchInit {
+  method?: string;
+  headers?: Record<string, string>;
+  body?: string;
+}
+
+export interface FetchResponse {
+  ok: boolean;
+  status: number;
+  text(): Promise<string>;
+  json(): Promise<unknown>;
+}
+
+export type FetchLike = (input: string, init?: FetchInit) => Promise<FetchResponse>;
+
+export interface ClientOptions {
+  apiKey: string;
+  model: string;
+  endpoint?: string;
+  fetchImpl?: FetchLike;
+}
+
+// --- Digest assembly ---
+
+export interface DigestItem {
+  id: string;
+  summary: string;
+  requester: string;
+  channelName: string;
+  timestamp: string;
+  webUrl?: string;
+  urgency: Urgency;
+  needsReview?: boolean;
+}
+
+export interface Buckets {
+  urgent: DigestItem[];
+  thisWeek: DigestItem[];
+  fyi: DigestItem[];
+}
+
+export interface DigestMeta {
+  generatedAt: string;
+  truncated?: number;
+}
+
+export interface AdaptiveCard {
+  type: "AdaptiveCard";
+  $schema: string;
+  version: string;
+  body: unknown[];
+}
