@@ -156,3 +156,38 @@ export interface AdaptiveCard {
   version: string;
   body: unknown[];
 }
+
+// --- Watermark / dedup state ---
+
+export interface SeenId {
+  id: string;
+  seenAt: string;
+}
+
+export interface ChannelWatermark {
+  channelId: string;
+  lastFetched: string;
+  seen: SeenId[];
+}
+
+// --- Pipeline ---
+
+export interface PipelineMessage {
+  message: GraphChatMessage;
+  ctx: ClassificationContext;
+  channelName: string;
+}
+
+export interface DigestStats {
+  high: number;
+  maybe: number;
+  no: number;
+  truncated: number;
+  aiUsed: boolean;
+}
+
+export interface DigestResult {
+  card: AdaptiveCard;
+  buckets: Buckets;
+  stats: DigestStats;
+}
