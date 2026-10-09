@@ -1,4 +1,6 @@
-# teams-digest
+# yourturn
+
+Your Teams channels, filtered down to the messages that need you.
 
 A single-user Teams assistant. It scans the channels you are a member of, extracts
 the messages that actually need your action, and posts a digest as an Adaptive Card
