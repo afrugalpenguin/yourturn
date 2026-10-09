@@ -1,7 +1,13 @@
 {
-  "name": "teams-digest",
+  "name": "yourturn",
   "version": "0.1.0",
-  "description": "Teams digest assistant - scans channels for items needing the user's action and posts an Adaptive Card digest.",
+  "description": "Scans the Teams channels you are a member of and posts a digest of the messages that need your action.",
+  "license": "MIT",
+  "author": "afrugalpenguin",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/afrugalpenguin/yourturn.git"
+  },
   "private": true,
   "type": "commonjs",
   "engines": {

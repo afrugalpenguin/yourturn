@@ -2,7 +2,7 @@ import { describe, it, expect } from "vitest";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { classify } from "../src/filter/rules";
-import { rulesConfig } from "../src/filter/rules.config";
+import { testRulesConfig } from "./fixtures/persona";
 import type { Classification, ClassificationContext, GraphChatMessage } from "../src/types";
 
 const FIXTURES_DIR = join(__dirname, "fixtures", "messages");
@@ -144,7 +144,7 @@ describe("classify (fixture contract)", () => {
   for (const c of cases) {
     it(`${c.fixture} -> ${c.expected.tier}/${c.expected.reason}`, () => {
       const message = load(c.fixture);
-      expect(classify(message, c.ctx, rulesConfig)).toEqual(c.expected);
+      expect(classify(message, c.ctx, testRulesConfig)).toEqual(c.expected);
     });
   }
 });

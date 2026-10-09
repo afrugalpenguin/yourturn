@@ -1,6 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { buildDigest } from "../src/pipeline/digest";
-import { rulesConfig } from "../src/filter/rules.config";
+import { testRulesConfig } from "./fixtures/persona";
 import type {
   ClassificationContext,
   ExtractionInput,
@@ -74,7 +74,7 @@ describe("buildDigest", () => {
   it("rules-only: HIGH goes in, MAYBE is parked in FYI as needs-review, NO is dropped", async () => {
     const result = await buildDigest(
       [pm(mentionMessage), pm(ownedAreaMessage), pm(selfMessage)],
-      rulesConfig,
+      testRulesConfig,
       null,
       META,
     );
@@ -94,7 +94,7 @@ describe("buildDigest", () => {
       reasoning: "owned area, looks actionable",
     }));
 
-    const result = await buildDigest([pm(ownedAreaMessage)], rulesConfig, provider, META);
+    const result = await buildDigest([pm(ownedAreaMessage)], testRulesConfig, provider, META);
 
     expect(result.stats.aiUsed).toBe(true);
     expect(result.buckets.urgent.map((i) => i.summary)).toEqual([
@@ -112,7 +112,7 @@ describe("buildDigest", () => {
       reasoning: "just an FYI",
     }));
 
-    const result = await buildDigest([pm(ownedAreaMessage)], rulesConfig, provider, META);
+    const result = await buildDigest([pm(ownedAreaMessage)], testRulesConfig, provider, META);
 
     expect(result.buckets.urgent).toEqual([]);
     expect(result.buckets.thisWeek).toEqual([]);
@@ -125,7 +125,7 @@ describe("buildDigest", () => {
       extract: () => Promise.reject(new Error("api down")),
     };
 
-    const result = await buildDigest([pm(ownedAreaMessage)], rulesConfig, provider, META);
+    const result = await buildDigest([pm(ownedAreaMessage)], testRulesConfig, provider, META);
 
     expect(result.stats.aiUsed).toBe(false);
     expect(result.buckets.fyi.find((i) => i.id === "m-maybe")?.needsReview).toBe(true);
@@ -143,7 +143,7 @@ describe("buildDigest", () => {
       ),
     );
 
-    const result = await buildDigest(maybes, rulesConfig, null, META, 2);
+    const result = await buildDigest(maybes, testRulesConfig, null, META, 2);
 
     expect(result.stats.truncated).toBe(1);
     expect(result.buckets.fyi).toHaveLength(2);
