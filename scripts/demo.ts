@@ -1,6 +1,6 @@
 import { mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
-import { rulesConfig } from "../src/filter/rules.config";
+import { testRulesConfig } from "../test/fixtures/persona";
 import { buildDigest } from "../src/pipeline/digest";
 import type { GraphChatMessage, PipelineMessage } from "../src/types";
 import { renderTeamsMockup, type MockupPost } from "./lib/mockup";
@@ -10,7 +10,7 @@ import { renderTeamsMockup, type MockupPost } from "./lib/mockup";
 // decisions - not hand-authored items. Swap this sample array for a live Graph
 // fetch and nothing downstream changes.
 
-const MAC = rulesConfig.userAadId;
+const PERSONA_ID = testRulesConfig.userAadId;
 const CHANNEL = "19:general000@thread.tacv2";
 const link = (n: string) =>
   `https://teams.microsoft.com/l/message/19%3A${n}%40thread.tacv2/170000${n}`;
@@ -49,7 +49,7 @@ const morning: PipelineMessage[] = [
         {
           id: 0,
           mentionText: "Mac",
-          mentioned: { user: { id: MAC, displayName: "Angus MacGyver" } },
+          mentioned: { user: { id: PERSONA_ID, displayName: "Angus MacGyver" } },
         },
       ],
     }),
@@ -102,7 +102,7 @@ const morning: PipelineMessage[] = [
   pm(
     gm({
       id: "5",
-      from: { user: { id: MAC, displayName: "Angus MacGyver" } },
+      from: { user: { id: PERSONA_ID, displayName: "Angus MacGyver" } },
       body: { contentType: "html", content: "<p>Thanks all, picking this up now.</p>" },
     }),
     "Project Phoenix",
@@ -130,10 +130,10 @@ const morning: PipelineMessage[] = [
 ];
 
 async function main(): Promise<void> {
-  const morningRun = await buildDigest(morning, rulesConfig, null, {
+  const morningRun = await buildDigest(morning, testRulesConfig, null, {
     generatedAt: "2026-06-12T07:30:00Z",
   });
-  const eveningRun = await buildDigest([], rulesConfig, null, {
+  const eveningRun = await buildDigest([], testRulesConfig, null, {
     generatedAt: "2026-06-11T17:00:00Z",
   });
 

@@ -57,7 +57,8 @@ Only MAYBE messages are sent to the AI stage. HIGH goes straight into the digest
 NO is dropped. The system always degrades gracefully to rules-only if the AI
 provider is unavailable.
 
-The classifier is pure and driven by data in `src/filter/rules.config.ts`. The
+The classifier is pure. Generic rule data (request and deadline phrases) lives in
+`src/filter/rules.config.ts`; the user's identity comes from app settings. The
 fixture suite in `test/fixtures/messages/` is the behavioural contract: every rule
 change starts with a fixture.
 
@@ -67,6 +68,20 @@ Copy `local.settings.json.sample` to `local.settings.json` (gitignored) and fill
 your Graph app registration, AI provider, and webhook values. Secrets never live in
 source.
 
-> Note: `src/filter/rules.config.ts` currently ships with a placeholder persona
-> (Angus "Mac" MacGyver). Replace the identity and owned-area values with your own
-> before deployment, and update the fixtures to match.
+The identity the rules engine looks for lives only in app settings
+(`local.settings.json` locally, Function App settings when deployed), never in
+source:
+
+| Setting             | Required | Format                                                            |
+| ------------------- | -------- | ----------------------------------------------------------------- |
+| `USER_AAD_ID`       | yes      | Your Entra ID object id (a GUID)                                  |
+| `USER_NAME_ALIASES` | yes      | Comma separated first name, nicknames and usernames               |
+| `USER_OWNED_AREAS`  | no       | Comma separated systems, products or clients you own              |
+| `MUTED_CHANNEL_IDS` | no       | Comma separated Teams channel ids to skip (`19:...@thread.tacv2`) |
+
+Aliases and owned areas are trimmed, lowercased and deduplicated. A missing or
+malformed required setting stops the run with an error that names the setting but
+never echoes its value.
+
+The test suite uses a fictional persona defined in `test/fixtures/persona.ts` and
+does not read these settings.
