@@ -1,5 +1,10 @@
 # yourturn
 
+[![License: MIT](https://img.shields.io/github/license/afrugalpenguin/yourturn)](LICENSE)
+[![Node >= 20](https://img.shields.io/badge/node-%3E%3D20-brightgreen?logo=node.js&logoColor=white)](package.json)
+[![TypeScript strict](https://img.shields.io/badge/TypeScript-strict-3178c6?logo=typescript&logoColor=white)](tsconfig.json)
+[![Last commit](https://img.shields.io/github/last-commit/afrugalpenguin/yourturn)](https://github.com/afrugalpenguin/yourturn/commits/main)
+
 Your Teams channels, filtered down to the messages that need you.
 
 A single-user Teams assistant. It scans the channels you are a member of, extracts
