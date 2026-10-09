@@ -6,13 +6,31 @@ A single-user Teams assistant. It scans the channels you are a member of, extrac
 the messages that actually need your action, and posts a digest as an Adaptive Card
 twice a day. Filtering is rules-first; the AI stage only sees the ambiguous middle.
 
-See `teams-digest-plan.md` for the full architecture and build order, and `CLAUDE.md`
-for the conventions this repo is built under.
+See `docs/architecture.md` for the full architecture.
 
 ## Status
 
-Session 1 (skeleton + Stage 1 rules engine) is complete and fully tested offline.
-Graph integration, the AI stage, digest assembly, and delivery are still to come.
+Done and covered by tests:
+
+- Stage 1 rules engine, with a fixture suite covering every HIGH / MAYBE / NO branch
+- AI provider abstraction (two clients plus rules-only), shared prompt template and
+  defensive response parsing
+- Digest pipeline: classification, single batched extraction with a 50-message cap,
+  graceful fallback to "needs review", bucketing and Adaptive Card rendering
+- Watermark and seen-id logic (in memory)
+- Graph message fetch and thread-context mapping (tested against a mocked Graph)
+
+Done, verified manually only:
+
+- Graph device-code sign-in and a connectivity dry run (`scripts/dryRun.ts`)
+
+Not done yet:
+
+- Channel enumeration and an end-to-end run against live data
+- Watermark persistence in Table Storage
+- The timer-triggered Azure Function
+- Webhook delivery and deployment
+- CI
 
 ## Stack
 

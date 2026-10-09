@@ -1,6 +1,2 @@
 node_modules/
 dist/
-
-# Planning docs - hand-formatted, not subject to prettier
-CLAUDE.md
-teams-digest-plan.md
